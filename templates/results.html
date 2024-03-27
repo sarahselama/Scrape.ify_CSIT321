@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <!-- Include any CSS styles here -->
+    <style>
+        /* CSS styles */
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    
+    <div id="search-results">
+        {% if product_info %}
+            <ul>
+                {% for product in product_info %}
+                    <li>
+                        <!-- Display each product information here -->
+                        <p>{{ product.text }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    </div>
+
+    <!-- Include any JavaScript scripts here -->
+    <script>
+        // JavaScript scripts
+    </script>
+</body>
+</html>

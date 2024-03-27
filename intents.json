@@ -1,0 +1,143 @@
+{
+    "intents": [
+        {
+            "pattern": "1",
+            "response": "Scrape.IFY is made with a very simplistic design. You can press on one of these pages and I will guide you to the pages:",
+            "options": [
+                {
+                    "pattern": "1.1",
+                    "text": "To Learn more about our website press the Home page."
+                },
+                {
+                    "pattern": "1.2",
+                    "text": "To start webscraping you can click on the webscraper page."
+                },
+                {
+                    "pattern": "1.3",
+                    "text": "To have one of our professionals create a webscraper for you press the Services or Buy now page."
+                },
+                {
+                    "pattern": "1.4",
+                    "text": "For the ChatBOT Page."
+                }
+            ]
+        },
+        {
+            "pattern": "2",
+            "response": "What issues are you facing with the webscraper? Please type one of the following numbers:",
+            "options": [
+                {
+                    "pattern": "2.1",
+                    "text": "Why am I given an empty file when Im finished with the webscraping."
+                },
+                {
+                    "pattern": "2.2",
+                    "text": "How do I use the Web-scraper?"
+                }
+            ]
+        },
+        {
+            "pattern": "3",
+            "response": "Okay lets get started.",
+            "options": [
+                {
+                    "pattern": "STEP 1",
+                    "text": "Firstly, I need you to provide me with 2 links that we will be scraping the data from!Just insert the two URLs."
+                },
+                {
+                    "pattern": "STEP 2",
+                    "text": "Now, input your desire products name for scrape."
+                },
+                {
+                    "pattern": "STEP 3",
+                    "text": "Finally Click Generate to your custom web scrape file."
+                },
+                {
+                    "pattern": "Create",
+                    "text": "Click the link to generate your custom Web-scraper file.",
+                    "url": "http://127.0.0.1:5000/custom-scrape"
+                }
+            ]
+        },
+        {
+            "pattern": "4",
+            "response": "No worries, here is how you can reach human customer support:",
+            "options": [
+                {
+                    "pattern": "PHONE :",
+                    "text": "+971 50 464 3726"
+                },
+                {
+                    "pattern": "EMAIL :",
+                    "text": "scrapify.ae@gmail.com"
+                },
+                {
+                    "pattern": "INSTAGRAM :",
+                    "text": "Connect to us on Instagram",
+                    "url": "https://www.instagram.com/scrapeify.ae"
+                },
+                {
+                    "pattern": "LINKEDIN :",
+                    "text": "Connect to us on Linkedin",
+                    "url": "https://www.linkedin.com/in/scrapeify-ae-bb85232b9"
+                },
+                {
+                    "pattern": "MARKETING WEBSITE :",
+                    "text": "See our marketing website for more details about our project!",
+                    "url": "https://aaryansh102.wixsite.com/scrapeify"
+                }
+            ]
+        },
+        {
+            "pattern": "1.1",
+            "response": "Here's more information about our website. Navigate to our home page....",
+            "url": "http://127.0.0.1:5000/home"
+        },
+        {
+            "pattern": "1.2",
+            "response": "Start webscraping by clicking here....",
+            "url": "http://127.0.0.1:5000/"
+        },
+        {
+            "pattern": "1.3",
+            "response": "Get a custom webscraper created by our professionals....",
+            "url": "http://127.0.0.1:5000/services"
+        },
+        {
+            "pattern": "1.4",
+            "response": "Check out our Chatbot Page....",
+            "url": "http://127.0.0.1:5000/chatbot"
+        },
+        {
+            "pattern": "2.1",
+            "options": [
+                {
+                    "pattern": "TIPS:",
+                    "text": "If you’re receiving an empty file it could be due to 2 things. Either you’ve made a typo in the name of the product so you’re either getting an empty output file or different product searches."
+                },
+                {
+                    "pattern": "*PRO-TIP:",
+                    "text": "The more specific you are when typing the product the more precise your web-scraped data will be.   eg: Dior Sauvage Eau De Parfum 100 ml. The product is not available on the 3 websites scraped. In that case there will be no outputs to retrieve."
+                }
+            ]
+        },
+        {
+            "pattern": "2.2",
+            "response": "It’s very simple to use the Scrape.ify web-scraper. All you need to do is:",
+            "options": [
+                {
+                    "pattern": "i",
+                    "text": "Type the product name with no typing errors."
+                },
+                {
+                    "pattern": "ii",
+                    "text": "Press the Download Excel File Button."
+                },
+                {
+                    "pattern": "iii",
+                    "text": "Wait for the web-scraper to do it’s magic and you’ll receive all the retrieved data from our web-scraper in an excel file on your laptop. Type 1 for restart the chat."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png" sizes="16x16">
+    <title>AI Chat Bot | Scrapeify</title>
+</head>
+<style>
+    .chat_area {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .message {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .message_content {
+        max-width: 100%;
+        padding: 10px;
+        border-radius: 20px;
+        margin-left: 10px;
+    }
+
+    .user_message {
+        align-self: flex-end;
+        display: flex;
+    }
+
+    .bot_message {
+        align-self: flex-start;
+        display: flex;
+    }
+
+    .user_message .message_content {
+        background-color: white;
+        color: black;
+        margin-right: 10px;
+        /* Ensure spacing between the message and the avatar */
+    }
+
+    .bot_message .message_content {
+        background-color: #f0f0f0;
+        color: black;
+        margin-left: 10px;
+        /* Ensure spacing between the avatar and the message */
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .message-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .message-bubble {
+        background-color: #e5e5ea;
+        color: #333;
+        padding: 10px;
+        border-radius: 18px;
+        margin: 5px;
+        max-width: 60%;
+    }
+
+    .user .message-bubble {
+        background-color: #007bff;
+        color: #fff;
+        order: 2;
+    }
+
+    .bot .message-bubble {
+        background-color: #f0f0f0;
+        order: 1;
+    }
+
+    .chat-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .user .chat-avatar {
+        margin-left: 10px;
+    }
+
+    .bot .chat-avatar {
+        margin-right: 10px;
+    }
+    p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: monospace;
+    font-size: 12px;
+}
+.url-button {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.url-button:hover {
+    background-color: #e8701a;
+    color: white;
+    transform: scale(1.05);
+}
+
+
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a href="/home" class="navbar-brand">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brixo Logo">
+            </a>
+            <div class="nav_mobile_right">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main_navbar"
+                    aria-controls="main_navbar">
+                    <i class="fa fa-bars menu_icon"></i>
+                </button>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="main_navbar"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <a href="/home" class="navbar-brand">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brixo Logo">
+                    </a>
+                    <i class="fa fa-times menu_icon" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                </div>
+                <div class="offcanvas-body my_menu">
+                    <div class="forspace"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Web-Scraper</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/chatbot" class="nav-link active">AI chat-bot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">Our services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/custom-scrape" class="nav-link">Custom Web Scrape</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link bynow_btn">Buy Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end here-->
+    <div class="for_margin_top"></div>
+    <section class="web_scraper_instruction py_7">
+      <div class="container">
+        <h2 class="sub_heading">Our AI Chat-Bot</h2>
+        <div class="row forflex">
+          <div class="col-12 col-md-7">
+            <h3 class="section_tagline">Our chatbot can help you with the following:</h3>
+            <p class="gen_p"> All you need to do is:</p>
+            <div class="steps_list">
+              <div>
+                <span class="step_no">01</span>
+              </div>
+              <p class="gen_p"> Help you how navigate through our website </p>
+            </div>
+            <div class="steps_list">
+              <div>
+                <span class="step_no">02</span>
+              </div>
+              <p class="gen_p">Help you with any queries on how to use the Web-Scraper</p>
+            </div>
+            <div class="steps_list ms-4">
+              <div>
+                <span class="step_no">2.2</span>
+              </div>
+              <p class="gen_p"> if you're not satisfied the chatbot will then give you access to human customer support, you could choose to call or email us!</p>
+            </div>
+            <div class="steps_list">
+              <div>
+                <span class="step_no">03</span>
+              </div>
+              <p class="gen_p">Guide you in creating your own custom Web-scraper (in the beauty & fragrance niche) </p>
+            </div>
+            <div class="steps_list ms-4">
+              <div>
+                <span class="step_no">3.3</span>
+              </div>
+              <p class="gen_p">if you aren't satisfied you can then request to get our professionals to create a custom Web-scraper for you in the Beauty & Fragrance niche. <a href="services.html">VIA the services page.</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <img src="{{ url_for('static', filename='images/chat_bot.png') }}" class="img-fluid br_10" alt="Chat bot ">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="main_chat_bot_section">
+        <div class="container">
+            <div class="chat_bot_area">
+                <div class="chat_area" id="chatArea">
+                    <div class="message bot_message">
+                        <img src="{{ url_for('static', filename='images/chat_man.png') }}" alt="Bot Avatar"
+                            class="avatar">
+                        <div class="message_content">
+                            <p>Hello! I'm Scrape.IFY bot, how can I assist you today?</p>
+                            <p>Please reply with a number a number 1 - 4 so I can assist you
+                                further:</p>
+                            <p>1 - I need help navigating the website pages</p>
+                            <p>2 - I'm facing some issues with the webscraper</p>
+                            <p>3 - I'd like to create my own custom webscraper</p>
+                            <p>4 - How can I contact human customer support ?</p>
+                        </div>
+                    </div>
+                    <!-- User message will be added dynamically  -->
+                </div>
+
+
+                <!-- Message area for input -->
+                <div class="message_area">
+                    <form id="chatForm">
+                        <div class="row forflex">
+                            <div class="col-9 col-md-10">
+                                <textarea placeholder="Write your message here.." id="userInput"></textarea>
+                            </div>
+                            <div class="col-3 col-md-2 sender_side text-center">
+                                <button type="submit">
+                                    <img src="{{ url_for('static', filename='images/send.png') }}"
+                                        class="img-fluid sender_icon" alt="send icon">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- chatbot area -->
+        </div>
+    </section>
+    <!-- main chat bot section end -->
+    <footer>
+        <div class="container px_2">
+            <div class="row forflex">
+                <div class="col-12 col-md-6 text-center text-md-start">
+                    <p class="copyright_text">&copy <span id="currentYear"></span> All Rights Reserved by scrape-ify.com
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <ul class="social_icons">
+                        <li>
+                            <a href="https://www.instagram.com/scrapeify.ae/">
+                                <img src="{{ url_for('static', filename='images/instagram.png') }}"
+                                    class="img-fluid social_icon" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/scrapeify-ae-bb85232b9">
+                                <img src="{{ url_for('static', filename='images/linkedin.png') }}"
+                                    class="img-fluid social_icon" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/proper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custome_script.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("#chatForm");
+    const chatArea = document.getElementById("chatArea");
+    const userInputField = document.querySelector("#userInput");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const userInput = userInputField.value.trim();
+
+        if (userInput) {
+            // Add the user's message to the chat area
+            addMessage({ text: userInput }, "user");
+            userInputField.value = ''; // Clear the input field
+
+            // Send the user message to the server and wait for a response
+            fetch("/send-message", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Add the bot's reply to the chat area
+                if (data.options) {
+                    addMessage(data.options, "bot");
+                } else if (data.response) {
+                    addMessage({ text: data.response, url: data.url }, "bot");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addMessage({ text: "Sorry, I'm having trouble responding right now." }, "bot");
+            });
+        }
+    });
+
+    // Function to append messages or options to the chat area
+    function addMessage(content, sender) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", `${sender}_message`);
+        
+        // Create avatar image element
+        const avatarImg = document.createElement("img");
+        avatarImg.src = sender === "user" ? "{{ url_for('static', filename='images/chat_user.png') }}" : "{{ url_for('static', filename='images/chat_man.png') }}";
+        avatarImg.alt = sender === "user" ? "User Avatar" : "Bot Avatar";
+        avatarImg.classList.add("avatar");
+
+        const messageContent = document.createElement("div");
+        messageContent.classList.add("message_content");
+
+        // Check if content is an array (we got options to display)
+        if (Array.isArray(content)) {
+            content.forEach(item => {
+                const paragraph = document.createElement("p");
+                paragraph.textContent = item.pattern + " - " + item.text;
+                messageContent.appendChild(paragraph);
+                
+                // Add a button if there's a URL
+                if (item.url) {
+                    const button = createButton(item.url);
+                    paragraph.appendChild(button);
+                }
+            });
+        } else {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = content.text;
+            messageContent.appendChild(paragraph);
+
+            // If a URL was provided, add a button
+            if (content.url) {
+                const button = createButton(content.url);
+                messageContent.appendChild(button);
+            }
+        }
+
+        // Append elements to messageDiv
+        messageDiv.appendChild(avatarImg);
+        messageDiv.appendChild(messageContent);
+        
+        // Append the whole message to the chat area and scroll to the latest message
+        chatArea.appendChild(messageDiv);
+        chatArea.scrollTop = chatArea.scrollHeight;
+    }
+
+    function createButton(url) {
+        const button = document.createElement("button");
+        button.textContent = "Click here";
+        button.onclick = function() {
+            window.location.href = url;
+        };
+        button.classList.add("url-button");
+        return button;
+    }
+});
+
+        </script>
+        
+
+
+
+</body>
+
+</html>

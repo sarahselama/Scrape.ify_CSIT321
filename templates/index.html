@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, 
+  user-scalable=0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png" sizes="16x16">
+    <title>Home | Scrapeify</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a href="/home" class="navbar-brand ">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brixo Logo">
+            </a>
+            <div class="nav_mobile_right">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main_navbar"
+                    aria-controls="main_navbar">
+                    <i class="fa fa-bars menu_icon"></i>
+                </button>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="main_navbar"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <a href="/home" class="navbar-brand">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brixo Logo">
+                    </a>
+                    <i class="fa fa-times menu_icon" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                </div>
+                <div class="offcanvas-body my_menu">
+                    <div class="forspace"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/home" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Web-Scraper</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/chatbot" class="nav-link">AI chat-bot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">Our services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/custom-scrape" class="nav-link">Custom Web Scrape</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link bynow_btn">Buy Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end here-->
+    <section class="home_page_hero_section py_7">
+        <div class="container px_2">
+            <div class="row forflex">
+                <div class="col-12 col-md-6 home_page_hero_left">
+                    <span class="taglline">Scrape.ify - Your Gateway to Data</span>
+                    <h1 class="hero_heading">Easy Web <span class="brand_color">Scraping for <br>Non-Coders </span>
+                    </h1>
+                    <p class="hero_desc">Scrape.ify is a platform that makes web scraping accessible to everyone,
+                        regardless of coding skills! With just the name of the Beauty or Fragrance product of your
+                        choice. Our platform will scrape three websites and present the data to you in an easy-to-use
+                        and downloadable Excel file. Say goodbye to the hassle of manual data extraction & say hello to
+                        Scrap.IFY </p>
+                    <a href="/" class="hero_btn">Get Started </a>
+                </div>
+                <!-- hero left end -->
+                <div class="col-12 col-md-6 home_page_hero_right">
+                    <img src="{{ url_for('static', filename='images/hero_image.jpeg') }}" class="img-fluid hero_img">
+                </div>
+                <!-- hero right end -->
+            </div>
+            <!-- row end -->
+        </div>
+        <!-- contianer end -->
+    </section>
+    <!-- hero section end -->
+    <section class="about_us_section py_7">
+        <div class="container px_2">
+            <span class="section_tagline">About Us</span>
+            <h2 class="sub_heading">Crafting a Data-Driven <br> Future at <span class="brand_color">Scrape.ify</span>
+            </h2>
+            <div class="row forflex ">
+                <div class="col-12 col-md-6">
+                    <p class="gen_p">At Scrape.ify, we understand that web-scraping can be daunting for those without
+                        coding skills. That's why we've created a platform that simplifies the process. Our easy-to-use
+                        interface allows you to input the product name and receive the scraped data in a downloadable
+                        Excel file.</p>
+                    <div class="mission_card">
+                        <i class="fas fa-bullseye mission_icon"></i>
+                        <h3 class="mission_title">Our Mission</h3>
+                        <p class="gen_p mb-0">Empowering everyone with the ease of web scraping, Scrape.ify simplifies
+                            data extraction for informed decisions. Our mission is to make valuable information
+                            accessible, transforming the way individuals and businesses interact with data through
+                            innovation and simplicity. </p>
+                    </div>
+                    <!-- vission_card end -->
+                </div>
+                <!-- about left -->
+                <div class="col-12 col-md-6 about_right">
+                    <div class="about_right_contetns">
+                        <div class="row forflex">
+                            <div class="col-12 col-md-6">
+                                <h3 class="third_heading text_center">What websites do we get our information from?</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info_card mt-0">
+                                    <div class="logo_circle p-3">
+                                        <img src="{{ url_for('static', filename='images/sephora.png') }}" class="info_card_logo img-fluid">
+                                    </div>
+                                    <h4 class="info_card_title">Sephora</h4>
+                                </div>
+                                <!-- infor card end -->
+                            </div>
+                            <!-- col -->
+                            <div class="col-12 col-md-6">
+                                <div class="info_card">
+                                    <div class="logo_circle">
+                                        <img src="{{ url_for('static', filename='images/beauty_bay.png') }}" class="info_card_logo img-fluid">
+                                    </div>
+                                    <h4 class="info_card_title">Beauty Bay</h4>
+                                </div>
+                                <!-- infor card end -->
+                            </div>
+                            <!-- col  -->
+                            <div class="col-12 col-md-6">
+                                <div class="info_card">
+                                    <div class="logo_circle">
+                                        <img src="{{ url_for('static', filename='images/faces.png') }}" class="info_card_logo img-fluid">
+                                    </div>
+                                    <h4 class="info_card_title">Faces</h4>
+                                </div>
+                                <!-- infor card end -->
+                            </div>
+                            <!-- col  -->
+                        </div>
+                        <!-- inner row  -->
+                    </div>
+                    <!-- about_right_contetns content -->
+                </div>
+                <!-- about right -->
+            </div>
+        </div>
+        <!-- contianer end -->
+    </section>
+    <!-- about us sectione nd -->
+    <section class="features_section py_7">
+        <div class="container px_2">
+            <h2 class="sub_heading text-center">How Does <span class="brand_color">
+                    <u>Scrape.ify</u>
+                </span> Make <br>Web Scraping Easier? </h2>
+            <div class="row forflex mt-5">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="feature_card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>Easy Data Extraction</h4>
+                        <p>Information made simple & accessible for all</p>
+                    </div>
+                    <!-- feature card -->
+                    <div class="feature_card">
+                        <i class="fas fa-user-lock"></i>
+                        <h4>No Login or SignUp Needed</h4>
+                        <p>Your privacy matters; enjoy hassle-free access</p>
+                    </div>
+                    <!-- feature card -->
+                </div>
+                <!-- left end -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="feature_card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Custom Web-Scraper</h4>
+                        <p>Created just for you at affordable prices!</p>
+                    </div>
+                    <!-- feature card -->
+                    <div class="feature_card">
+                        <i class="fa fa-clock"></i>
+                        <h4>Save Time & Money</h4>
+                        <p>No coding knowledge needed!</p>
+                    </div>
+                    <!-- feature card -->
+                    <div class="feature_card">
+                        <i class="fas fa-robot"></i>
+                        <h4>Free to Use</h4>
+                        <p>Our main web-scraper & chatbot are free to use</p>
+                    </div>
+                    <!-- feature card -->
+                </div>
+                <!-- center end -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="feature_card">
+                        <i class="fas fa-money-check-alt"></i>
+                        <h4>Affordable Prices</h4>
+                        <p>Unlock the power of custom web-scraping without breaking the bank</p>
+                    </div>
+                    <!-- feature card -->
+                    <div class="feature_card">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>Instant Support</h4>
+                        <p>Got questions? Our support team is here to assist you instantly</p>
+                    </div>
+                    <!-- feature card -->
+                </div>
+                <!-- right end -->
+            </div>
+            <!-- row end -->
+        </div>
+        <!-- contianer end -->
+    </section>
+    <!-- features section -->
+    <section class="faq_section py_7">
+        <div class="container px_2">
+            <p class="section_tagline">Frequently Asked Questions</p>
+            <h2 class="sub_heading"> Explore Common Queries <br>about <span class="brand_color">Scrape.ify</span>
+            </h2>
+            <div class="row mt-5 forflex">
+                <div class="col-12 col-md-7">
+                    <h2 class="third_heading">Why use our platform?</h2>
+                    <p class="gen_p">At Scrape.ify, we believe in the power of data. Our website requires ZERO coding
+                        knowledge to use, all you need to do is insert the name of the beauty or fragrance product
+                        you're looking for and <a href="/web_scraper" class="desc_link">our web-scraper will do all
+                            the work for you.</a>
+                    </p>
+                    <p class="gen_p"> We also offer an AI ChatBot to help you with queries and help you CREATE YOUR OWN
+                        WEB-SCRAPER. </p>
+                    <p class="gen_p"> If you're not satisfied with the Web-scraper the ChatBot offers you can commission
+                        our professionals to create a unique Beauty & Fragrance website just for you! </p>
+                </div>
+                <!-- why_use_left end -->
+                <div class="col-12 col-md-5">
+                    <img src="{{ url_for('static', filename='images/faq_image.jpg') }}" class="img-fluid faq_img">
+                </div>
+                <!-- faq icon end -->
+            </div>
+            <!-- row end -->
+            <div class="question_two">
+                <h2 class="sub_heading text-center">Who can use our platform?</h2>
+                <p class="gen_p text-center">Scrape.ify is created for anyone and everyone to use & enjoy but here are a
+                    few <span class="d-inline d-md-block"></span> examples how our platform can be used! </p>
+                <div class="row mt-5">
+                    <div class="col-12 col-md-9">
+                        <div class="who_use_card">
+                            <div>
+                                <h4 class="third_heading">
+                                    <span class="no">01.</span>Beauty & fragrance lovers!
+                                </h4>
+                                <ul class="who_list mt-4">
+                                    <li> Are you a beauty lover tired of paying then finding the product cheaper
+                                        elsewhere?</li>
+                                    <li> Hating a product you spent money on because you can't see the ratings?</li>
+                                    <li> Buying the wrong perfume because you picked an EDP over an EDT?</li>
+                                </ul>
+                                <!-- who_list end -->
+                                <h5 class="forYou"> Scrap.ify is made for you</h5>
+                            </div>
+                            <!-- who use card end-->
+                            <div class="who_left">
+                                <img src="{{ url_for('static', filename='images/girl.png') }}" class="image who_icon">
+                            </div>
+                        </div>
+                        <!-- who_use_card end -->
+                    </div>
+                    <!-- col end -->
+                </div>
+                <!-- row end -->
+                <div class="row mt-5">
+                    <div class="col-12 col-md-9 offset-0 offset-md-3">
+                        <div class="who_use_card">
+                            <div class="who_left">
+                                <img src="{{ url_for('static', filename='images/enterprenuor.png') }}" class="image who_icon">
+                            </div>
+                            <div>
+                                <h4 class="third_heading">
+                                    <span class="no">02.</span>Business men & Entrepreneurs!
+                                </h4>
+                                <ul class="who_list mt-4">
+                                    <li> Want to see your competitor's prices and their product ratings?</li>
+                                    <li> Tried reselling a product and found out it's unpopular?</li>
+                                    <li> Need help for market research or lead generation?</li>
+                                    <li> Struggle with finding product links and details from websites?</li>
+                                </ul>
+                                <!-- who list end -->
+                                <h5 class="forYou"> Scrap.ify is made for you</h5>
+                            </div>
+                        </div>
+                        <!-- who use card -->
+                    </div>
+                    <!-- col end -->
+                </div>
+                <!-- row end -->
+            </div>
+            <!-- question two -->
+        </div>
+    </section>
+    <!-- faq section -->
+    <section class="scrape_data_procedure_section py_7">
+        <div class="container px_2">
+            <div class="row">
+                <div class="col-12 col-md-7 col-l">
+                    <h2 class="sub_heading">Scrape Data about your favorite Product in a Few Clicks</h2>
+                    <p class="gen_p"> Our platform is designed to be simple and approachable. With just a few clicks,
+                        you can scrape the data you need in a simple EXCEL file. </p>
+                    <p class="gen_p">It will contain the following data collected about your product:</p>
+                    <div class="steps_list">
+                        <span class="step_no">01</span>
+                        <p class="gen_p"> Product's price on each website</p>
+                    </div>
+                    <!-- step number and desc end -->
+                    <div class="steps_list">
+                        <span class="step_no">02</span>
+                        <p class="gen_p"> Product link for each website</p>
+                    </div>
+                    <!-- step number and desc end -->
+                    <div class="steps_list">
+                        <span class="step_no">03</span>
+                        <p class="gen_p"> Product's rating on each website</p>
+                    </div>
+                    <!-- step number and desc end -->
+                    <div class="steps_list">
+                        <span class="step_no">04</span>
+                        <p class="gen_p"> Product image to ensure you got the correct product!</p>
+                    </div>
+                    <!-- step number and desc end -->
+                    <p class="gen_p"> No need to learn complex coding languages or spend hours manually extracting data.
+                    </p>
+                </div>
+                <!-- left end -->
+                <div class="col-12 col-md-5">
+                    <img src="{{ url_for('static', filename='images/web_to_excel.png') }}" class="img-fluid">
+                </div>
+                <!-- right end -->
+            </div>
+            <!-- row end -->
+        </div>
+        <!-- container end -->
+    </section>
+    <footer>
+        <div class="container px_2">
+            <div class="row forflex">
+                <div class="col-12 col-md-6 text-center text-md-start">
+                    <p class="copyright_text">&copy <span id="currentYear"></span> All Rights Reserved by scrape-ify.com
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <ul class="social_icons">
+                        <li>
+                            <a href="https://www.instagram.com/scrapeify.ae/">
+                                <img src="{{ url_for('static', filename='images/instagram.png') }}" class="img-fluid social_icon" />
+                            </a>
+                        </li>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/scrapeify-ae-bb85232b9">
+                                <img src="{{ url_for('static', filename='images/linkedin.png') }}" class="img-fluid social_icon" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/proper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custome_script.js') }}"></script>
+</body>
+
+</html>

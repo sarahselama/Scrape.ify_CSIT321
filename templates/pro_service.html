@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, 
+  user-scalable=0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png" sizes="16x16">
+    <title>Pro Services | Scrapeify</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a href="/home" class="navbar-brand ">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brixo Logo">
+            </a>
+            <div class="nav_mobile_right">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main_navbar"
+                    aria-controls="main_navbar">
+                    <i class="fa fa-bars menu_icon"></i>
+                </button>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="main_navbar"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <a href="/home" class="navbar-brand">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brixo Logo">
+                    </a>
+                    <i class="fa fa-times menu_icon" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                </div>
+                <div class="offcanvas-body my_menu">
+                    <div class="forspace"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Web-Scraper</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/chatbot" class="nav-link">AI chat-bot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">Our services</a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="/custom-scrape" class="nav-link">Custom Web Scrape</a>
+                      </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link bynow_btn">Buy Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end here-->
+    <div class="for_margin_top"></div>
+    <section class="checkout_section py_7">
+      <div class="container">
+        <h2 class="sub_heading ">Checkout</h2> <br><br><br>
+        <form method="post" enctype="" id="myForm">
+          <div class="row gy-5 gy-md-0">
+            <div class="col-12 col-md-7 checkout_left ">
+              <fieldset>
+                <legend>Personal Information</legend>
+                <div class="form_flex">
+                  <div class="form_left">
+                    <label for="firstName">First Name: <span class="star">*</span>
+                    </label>
+                    <input type="text" name="f_name" id="firstName">
+                    <small class="error_message"></small>
+                  </div>
+                  <div class="form_left">
+                    <label for="lastName">Last Name: <span class="star">*</span>
+                    </label>
+                    <input type="text" name="l_name" id="lastName">
+                    <small class="error_message"></small>
+                  </div>
+                </div>
+                <div class="form_flex">
+                  <div class="form_left">
+                    <label for="email">Email: <span class="star">*</span>
+                    </label>
+                    <input type="email" name="email" id="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+">
+                    <small class="error_message"></small>
+                  </div>
+                  <div class="form_left">
+                    <label for="phone">Phone: <span class="star">*</span>
+                    </label>
+                    <input type="text" id="phone" name="phone" maxlength="15" oninput="this.value = this.value.replace(/[^0-9+=]/g, ''); if(this.value.length > 15) this.value = this.value.slice(0, 15);">
+                    <small class="error_message"></small>
+                  </div>
+                </div>
+                <div class="form_flex full_width_flex">
+                  <div class="ful_width">
+                    <label for="address">Address: <span class="star">*</span>
+                    </label>
+                    <textarea name="address" id="address"></textarea>
+                    <small class="error_message d-block"></small>
+                    <span class="impp">This is extremely important as our payment is cash on delivery!</span>
+                  </div>
+                </div>
+              </fieldset> <br><br><br>
+              <fieldset>
+                <legend>Other Information</legend>
+                <div class="form-group radio_flex mt-3">
+                  <label for="one_website">Choose how many websites you need to scrape!</label>
+                  <div class="row">
+                    <div class="col-6 col-lg-3 radio">
+                      <input type="radio" name="how_many_web_scraped!" value="3 website" checked="" required>
+                      <label>3 Websites</label>
+                    </div>
+                    <div class="col-6 col-lg-3 radio">
+                      <input type="radio" name="how_many_web_scraped!" value="4 website" required>
+                      <label>4 Websites</label>
+                    </div>
+                    <div class="col-6 col-lg-3 radio">
+                      <input type="radio" name="how_many_web_scraped!" value="5 website" required>
+                      <label>5 Websites</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form_flex full_width_flex">
+                  <div class="ful_width">
+                    <label for="webb_scraper_info">Tell us how you want the web-scraper done: <span class="star">*</span>
+                    </label>
+                    <textarea id="webb_scraper_info" name="web_scraper_info"></textarea>
+                    <small class="error_message"></small>
+                  </div>
+                </div>
+                <div class="form-group radio_flex mt-3">
+                  <label for="">Data Types you'd like for each product scraped!</label>
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 radio">
+                      <input type="checkbox" name="data_types_2" id="product_price" value="product price">
+                      <label for="product_price">Product Price</label>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 radio">
+                      <input type="checkbox" name="data_types_2" id="product_link" value="product link" checked>
+                      <label for="product_link">Product Link</label>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 radio">
+                      <input type="checkbox" name="data_types_2" id="product_image" value="product image">
+                      <label for="product_image">Product Image</label>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 radio">
+                      <input type="checkbox" name="data_types_2" id="product_rating" value="product rating">
+                      <label for="product_rating">Product Rating</label>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 radio">
+                      <input type="checkbox" name="data_types_2" id="product_availability" value="product availability">
+                      <label for="product_availability">Product Availability</label>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4 radio">
+                      <input type="checkbox" name="data_types_2" id="product_popularity" value="product popularity">
+                      <label for="product_popularity">Product Popularity</label>
+                    </div>
+                    <small class="error_message"></small>
+                    <div></div>
+                  </div>
+                  <span class="impp mt-3">These are the data types that will be shown when you download the excel file. !</span>
+                </div>
+                <div class="form_flex full_width_flex">
+                  <div class="ful_width">
+                    <label for="site_links">link of 3-5 websites that need to be scraped! * <span class="star">*</span>
+                    </label>
+                    <textarea id="site_links" name="website_links"></textarea>
+                    <small class="error_message"></small>
+                  </div>
+                </div>
+              </fieldset> <br><br><br>
+              <fieldset>
+                <legend>Payment Option</legend>
+                <div class="form-group radio_flex mt-3">
+                  <label for="cashOnDelivery">Choose a payment option:</label>
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 radio">
+                      <input type="radio" name="payment_option" id="cashOnDelivery" value="Cash" checked="">
+                      <label for="cashOnDelivery">Cash on Delivery</label>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-8 radio">
+                      <input type="radio" name="payment_option" id="creditCard" value="creditcard">
+                      <label for="creditCard">Credit Card</label>
+                      <img src="{{ url_for('static', filename='images/payment_gateway.png') }}" class="img-fluid payment_img">
+                    </div>
+                    <span class="error_message"></span>
+                  </div>
+                  <div class="payment_card" id="payment_card">
+                    <div class="row">
+                      <div class="col-12 mb-4">
+                        <label for="cardNo">Card No: <span class="star">*</span>
+                        </label>
+                        <input type="number" id="cardNo" name="c_no" minlength="14" maxlength="16" oninput="this.value = this.value.replace(/[^0-9]/g, '');if(this.value.length > 16) this.value = this.value.slice(0, 16);">
+                        <small class="error_message"></small>
+                      </div>
+                      <div class="col-6">
+                        <label for="expiration">Expiration (MM/YY): <span class="star">*</span>
+                        </label>
+                        <input type="number" id="expiration" name="expiration" oninput="this.value = this.value.replace(/[^0-9]/g, '');if(this.value.length > 4) this.value = this.value.slice(0, 4);">
+                        <small class="error_message"></small>
+                      </div>
+                      <div class="col-6">
+                        <label for="securityCode">Card security code: <span class="star">*</span>
+                        </label>
+                        <input type="number" id="securityCode" name="security_no" oninput="this.value = this.value.replace(/[^0-9]/g, '');if(this.value.length > 3) this.value = this.value.slice(0, 3);">
+                        <small class="error_message"></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- checkout left end -->
+            <div class="col-12 col-md-5 checkout_right mt-5  ">
+              <div class="checkout_right_contents">
+                <h2 class="third_heading ">Order Summary!</h2>
+                <div class="row mt-4">
+                  <div class="col-8 text-start p-0">
+                    <h4 class="pkg_name">Pro</h4>
+                  </div>
+                  <div class="col-4 p-0 text-end">
+                    <p class="gen_p">
+                      <b>899.00 AED</b>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <p class="gen_p">
+                    <b>Duration: </b> 5 days delivery time
+                  </p>
+                </div>
+                <hr class="my-4">
+                <div class="row mt-4">
+                  <div class="col-8 text-start p-0">
+                    <h4 class="pkg_name">Total</h4>
+                  </div>
+                  <div class="col-4 p-0 text-end">
+                    <p class="gen_p">
+                      <b>899.00 AED</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="form_flex full_width_flex">
+                  <div class="ful_width">
+                    <input type="submit" value="continue" name="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- checkout right end -->
+        </form>
+      </div>
+    </section>
+    <!-- section end -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="modal-box">
+            <!-- Modal -->
+            <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  <div class="modal-body text-center">
+                    <div class="icon">
+                      <i class="fa fa-check"></i>
+                    </div>
+                    <h3 class="title">Congrats! <br>Your order has been accepted! </h3>
+                    <p class="gen_p">Our team will be staying in touch with you.</p>
+                    <p class="gen_p">Please be aware that only COD payment includes an in real life demonstration, Card payment will be via video call. </p>
+                    <p class="gen_p">For any questions don't hesitate to email us at <a href="mailto:scrapify.ae@gmail.com">scrapify.ae@gmail.com</a>
+                    </p>
+                    <p class="gen_p">or call us at: <a href="tel:+97150 464 3726">+97150 464 3726</a>
+                    </p>
+                    <a class="subscribe" href="/home">Got it</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container px_2">
+          <div class="row forflex">
+              <div class="col-12 col-md-6 text-center text-md-start">
+                  <p class="copyright_text">&copy <span id="currentYear"></span> All Rights Reserved by scrape-ify.com
+                  </p>
+              </div>
+              <div class="col-12 col-md-6 text-center text-md-end">
+                  <ul class="social_icons">
+                      <li>
+                          <a href="https://www.instagram.com/scrapeify.ae/">
+                              <img src="{{ url_for('static', filename='images/instagram.png') }}" class="img-fluid social_icon" />
+                          </a>
+                      </li>
+                      </li>
+                      <li>
+                          <a href="https://www.linkedin.com/in/scrapeify-ae-bb85232b9">
+                              <img src="{{ url_for('static', filename='images/linkedin.png') }}" class="img-fluid social_icon" />
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/proper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custome_script.js') }}"></script>
+  </body>
+</html>
