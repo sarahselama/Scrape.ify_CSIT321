@@ -6,7 +6,7 @@ Open the whole project using VS code (the blue one)
 Open the file named app.py in VS code
 Open a new terminal 
 Write the following commands:
- python -m venv venv
+python -m venv venv
 venv/Scripts/activate 
 pip install -r requirements.txt
 pip install nltk
