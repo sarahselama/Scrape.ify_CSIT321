@@ -1,6 +1,6 @@
 # Scrape.IFY No Code Web Scraping
 
-Scrape.IFY is a Flask-based web app that lets anyone (no coding needed) scrape product data from leading beauty retailers and download the results as an Excel file. It also includes an AI-assisted chatbot to guide users, plus a workflow to generate *custom* scraper scripts from simple inputs.
+Scrape.IFY is a Flask-based web app that lets anyone (no coding needed) scrape product data from retailer websites and download the results as an Excel file. It also includes an AI-assisted chatbot to guide users, plus a workflow to generate *custom* scraper scripts from simple inputs.
 
 > Target users: beauty founders, dropshippers, price/competitor analysts, and enthusiasts who want fast product comparisons without writing code.
 
@@ -14,7 +14,10 @@ Scrape.IFY is a Flask-based web app that lets anyone (no coding needed) scrape p
 - **Responsive UI** built with HTML/CSS/Bootstrap + JS.
 - **Modular Flask backend** for routes, scraping, and chatbot intents.
 
-> Data fields typically include: product name, price, rating, number of reviews, image URL, product URL, and source site.
+### Usage
+- **Scrape products**: on the Home/Aggregated Search page, enter a product/brand → click **Download** to get an .xlsx with merged results.
+- **Chatbot help**: open the **Chatbot** page → ask “How do I scrape?” or “Create a custom scraper” and follow prompts.
+- **Custom scraper**: go to **Custom Scrape** → provide URLs and fields → submit → a ready-to-edit Python script (`custom_scrape.py`) is generated for you.
 
 ## Architecture (High Level)
 - **Frontend**: HTML5, CSS3 (Bootstrap), JavaScript (with AJAX).
@@ -33,10 +36,7 @@ Scrape.IFY is a Flask-based web app that lets anyone (no coding needed) scrape p
 /generate-scrape        -> generates & returns a Python script for custom scraping
 /send-message           -> chatbot message handler (AJAX)
 ```
-
 ---
-
-## Quick Start
 
 ### Prerequisites
 - Python 3.9+
@@ -60,14 +60,7 @@ python app.py
 # App will start (by default) at http://127.0.0.1:5000/home
 ```
 
-### Usage
-- **Scrape products**: on the Home/Aggregated Search page, enter a product/brand → click **Download** to get an .xlsx with merged results.
-- **Chatbot help**: open the **Chatbot** page → ask “How do I scrape?” or “Create a custom scraper” and follow prompts.
-- **Custom scraper**: go to **Custom Scrape** → provide URLs and fields → submit → a ready-to-edit Python script (`custom_scrape.py`) is generated for you.
-
----
-
-## Suggested Project Structure
+## Project Structure
 ```
 scrapeify/
 ├─ app.py
@@ -88,7 +81,6 @@ scrapeify/
 ├─ static/                      # CSS/JS/assets
 └─ README.md
 ```
-
 ---
 
 ## Configuration
@@ -98,11 +90,8 @@ Environment variables (optional):
 
 Excel output:
 - Uses **pandas** to assemble rows and **openpyxl** to auto-fit columns for readability.
-
 ---
-
 ## Requirements
-Create a `requirements.txt` like:
 ```
 Flask
 requests
@@ -111,21 +100,7 @@ pandas
 openpyxl
 nltk
 ```
-(You can pin exact versions later.)
-
 ---
-
-## Testing (what to verify)
-- **UI** renders on Chrome/Firefox/Edge/Safari at multiple screen sizes.
-- **Chatbot** responds to common flows (navigation, “how to scrape”, “create custom scraper”, escalate to human support).
-- **Scraper** returns consistent columns even when some fields are missing on a site.
-- **Excel export** downloads and opens cleanly (no corrupt file warnings).
-- **Error handling** shows friendly messages on network/selector failures.
-
----
-
-## Legal & Ethics
-Only scrape publicly available product data. Respect each site’s robots.txt, terms of service, and rate limits. Do **not** collect personal data. This project is for educational and competitive-intelligence use within applicable laws.
 
 ## Team
 - **Habiba Abdel Aziz**
