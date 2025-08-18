@@ -41,7 +41,7 @@ Scrape.IFY is a Flask-based web app that lets anyone (no coding needed) scrape p
 ### Prerequisites
 - Python 3.9+
 - pip
-- (Optional) **OpenAI API key** if you wire an LLM behind the chatbot: set environment var `OPENAI_API_KEY`
+- (Optional) **OpenAI/Claude API key** if you wire an LLM behind the chatbot: set environment var `OPENAI_API_KEY`
 
 ### Setup
 ```bash
